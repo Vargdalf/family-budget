@@ -451,6 +451,30 @@ paths:
           description: ''
       tags:
       - api
+    post:
+      operationId: createUser
+      description: ''
+      parameters: []
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/User'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/User'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/User'
+      responses:
+        '201':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/User'
+          description: ''
+      tags:
+      - api
   /api/users/{id}/:
     get:
       operationId: retrieveUser
@@ -477,6 +501,99 @@ paths:
           description: ''
       tags:
       - api
+    put:
+      operationId: updateUser
+      description: ''
+      parameters:
+      - name: id
+        in: path
+        required: true
+        description: ''
+        schema:
+          type: string
+      - name: name
+        required: false
+        in: query
+        description: name
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/User'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/User'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/User'
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/User'
+          description: ''
+      tags:
+      - api
+    patch:
+      operationId: partialUpdateUser
+      description: ''
+      parameters:
+      - name: id
+        in: path
+        required: true
+        description: ''
+        schema:
+          type: string
+      - name: name
+        required: false
+        in: query
+        description: name
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/User'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/User'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/User'
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/User'
+          description: ''
+      tags:
+      - api
+    delete:
+      operationId: destroyUser
+      description: ''
+      parameters:
+      - name: id
+        in: path
+        required: true
+        description: ''
+        schema:
+          type: string
+      - name: name
+        required: false
+        in: query
+        description: name
+        schema:
+          type: string
+      responses:
+        '204':
+          description: ''
+      tags:
+      - api
 components:
   schemas:
     Budget:
@@ -491,7 +608,21 @@ components:
         entries:
           type: array
           items:
-            type: integer
+            type: object
+            properties:
+              category:
+                type: integer
+                nullable: true
+              name:
+                type: string
+                maxLength: 255
+              amount:
+                type: number
+                multipleOf: 0.01
+                maximum: 100000000
+                minimum: -100000000
+            required:
+            - amount
         shared_with:
           type: array
           items:
@@ -523,7 +654,11 @@ components:
         budgets:
           type: array
           items:
-            type: integer
+            type: string
+          readOnly: true
+        password:
+          type: string
+          writeOnly: true
       required:
       - username
-      - budgets
+      - password
