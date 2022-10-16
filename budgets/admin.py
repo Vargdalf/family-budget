@@ -11,7 +11,7 @@ admin.site.register(Category)
 
 class EntryInline(admin.TabularInline):
     model = Entry
-    extra = 0
+    extra = 1
 
 
 @register(Budget)

@@ -1,0 +1,529 @@
+openapi: 3.0.2
+info:
+  title: Family Budget API
+  version: 1.0.0
+paths:
+  /api/budgets/:
+    get:
+      operationId: listBudgets
+      description: ''
+      parameters:
+      - name: page
+        required: false
+        in: query
+        description: A page number within the paginated result set.
+        schema:
+          type: integer
+      - name: name
+        required: false
+        in: query
+        description: name
+        schema:
+          type: string
+      - name: owner
+        required: false
+        in: query
+        description: owner
+        schema:
+          type: string
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  count:
+                    type: integer
+                    example: 123
+                  next:
+                    type: string
+                    nullable: true
+                    format: uri
+                    example: http://api.example.org/accounts/?page=4
+                  previous:
+                    type: string
+                    nullable: true
+                    format: uri
+                    example: http://api.example.org/accounts/?page=2
+                  results:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Budget'
+          description: ''
+      tags:
+      - api
+    post:
+      operationId: createBudget
+      description: ''
+      parameters: []
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Budget'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/Budget'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/Budget'
+      responses:
+        '201':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Budget'
+          description: ''
+      tags:
+      - api
+  /api/budgets/{id}/:
+    get:
+      operationId: retrieveBudget
+      description: ''
+      parameters:
+      - name: id
+        in: path
+        required: true
+        description: A unique integer value identifying this budget.
+        schema:
+          type: string
+      - name: name
+        required: false
+        in: query
+        description: name
+        schema:
+          type: string
+      - name: owner
+        required: false
+        in: query
+        description: owner
+        schema:
+          type: string
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Budget'
+          description: ''
+      tags:
+      - api
+    put:
+      operationId: updateBudget
+      description: ''
+      parameters:
+      - name: id
+        in: path
+        required: true
+        description: A unique integer value identifying this budget.
+        schema:
+          type: string
+      - name: name
+        required: false
+        in: query
+        description: name
+        schema:
+          type: string
+      - name: owner
+        required: false
+        in: query
+        description: owner
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Budget'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/Budget'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/Budget'
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Budget'
+          description: ''
+      tags:
+      - api
+    patch:
+      operationId: partialUpdateBudget
+      description: ''
+      parameters:
+      - name: id
+        in: path
+        required: true
+        description: A unique integer value identifying this budget.
+        schema:
+          type: string
+      - name: name
+        required: false
+        in: query
+        description: name
+        schema:
+          type: string
+      - name: owner
+        required: false
+        in: query
+        description: owner
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Budget'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/Budget'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/Budget'
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Budget'
+          description: ''
+      tags:
+      - api
+    delete:
+      operationId: destroyBudget
+      description: ''
+      parameters:
+      - name: id
+        in: path
+        required: true
+        description: A unique integer value identifying this budget.
+        schema:
+          type: string
+      - name: name
+        required: false
+        in: query
+        description: name
+        schema:
+          type: string
+      - name: owner
+        required: false
+        in: query
+        description: owner
+        schema:
+          type: string
+      responses:
+        '204':
+          description: ''
+      tags:
+      - api
+  /api/categories/:
+    get:
+      operationId: listCategorys
+      description: ''
+      parameters:
+      - name: page
+        required: false
+        in: query
+        description: A page number within the paginated result set.
+        schema:
+          type: integer
+      - name: name
+        required: false
+        in: query
+        description: name
+        schema:
+          type: string
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  count:
+                    type: integer
+                    example: 123
+                  next:
+                    type: string
+                    nullable: true
+                    format: uri
+                    example: http://api.example.org/accounts/?page=4
+                  previous:
+                    type: string
+                    nullable: true
+                    format: uri
+                    example: http://api.example.org/accounts/?page=2
+                  results:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Category'
+          description: ''
+      tags:
+      - api
+    post:
+      operationId: createCategory
+      description: ''
+      parameters: []
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Category'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/Category'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/Category'
+      responses:
+        '201':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Category'
+          description: ''
+      tags:
+      - api
+  /api/categories/{id}/:
+    get:
+      operationId: retrieveCategory
+      description: ''
+      parameters:
+      - name: id
+        in: path
+        required: true
+        description: A unique integer value identifying this category.
+        schema:
+          type: string
+      - name: name
+        required: false
+        in: query
+        description: name
+        schema:
+          type: string
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Category'
+          description: ''
+      tags:
+      - api
+    put:
+      operationId: updateCategory
+      description: ''
+      parameters:
+      - name: id
+        in: path
+        required: true
+        description: A unique integer value identifying this category.
+        schema:
+          type: string
+      - name: name
+        required: false
+        in: query
+        description: name
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Category'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/Category'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/Category'
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Category'
+          description: ''
+      tags:
+      - api
+    patch:
+      operationId: partialUpdateCategory
+      description: ''
+      parameters:
+      - name: id
+        in: path
+        required: true
+        description: A unique integer value identifying this category.
+        schema:
+          type: string
+      - name: name
+        required: false
+        in: query
+        description: name
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Category'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/Category'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/Category'
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Category'
+          description: ''
+      tags:
+      - api
+    delete:
+      operationId: destroyCategory
+      description: ''
+      parameters:
+      - name: id
+        in: path
+        required: true
+        description: A unique integer value identifying this category.
+        schema:
+          type: string
+      - name: name
+        required: false
+        in: query
+        description: name
+        schema:
+          type: string
+      responses:
+        '204':
+          description: ''
+      tags:
+      - api
+  /api/users/:
+    get:
+      operationId: listUsers
+      description: ''
+      parameters:
+      - name: page
+        required: false
+        in: query
+        description: A page number within the paginated result set.
+        schema:
+          type: integer
+      - name: name
+        required: false
+        in: query
+        description: name
+        schema:
+          type: string
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  count:
+                    type: integer
+                    example: 123
+                  next:
+                    type: string
+                    nullable: true
+                    format: uri
+                    example: http://api.example.org/accounts/?page=4
+                  previous:
+                    type: string
+                    nullable: true
+                    format: uri
+                    example: http://api.example.org/accounts/?page=2
+                  results:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/User'
+          description: ''
+      tags:
+      - api
+  /api/users/{id}/:
+    get:
+      operationId: retrieveUser
+      description: ''
+      parameters:
+      - name: id
+        in: path
+        required: true
+        description: A unique integer value identifying this user.
+        schema:
+          type: string
+      - name: name
+        required: false
+        in: query
+        description: name
+        schema:
+          type: string
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/User'
+          description: ''
+      tags:
+      - api
+components:
+  schemas:
+    Budget:
+      type: object
+      properties:
+        name:
+          type: string
+          maxLength: 255
+        owner:
+          type: string
+          readOnly: true
+        entries:
+          type: array
+          items:
+            type: integer
+        shared_with:
+          type: array
+          items:
+            type: integer
+      required:
+      - name
+      - entries
+      - shared_with
+    Category:
+      type: object
+      properties:
+        name:
+          type: string
+          maxLength: 128
+      required:
+      - name
+    User:
+      type: object
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        username:
+          type: string
+          description: Required. 150 characters or fewer. Letters, digits and @/./+/-/_
+            only.
+          pattern: ^[\w.@+-]+\z
+          maxLength: 150
+        budgets:
+          type: array
+          items:
+            type: integer
+      required:
+      - username
+      - budgets

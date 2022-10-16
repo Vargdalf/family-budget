@@ -16,6 +16,7 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import include, path
 from rest_framework.routers import DefaultRouter
+from rest_framework.schemas import get_schema_view
 
 from budgets import views as bviews
 from users import views as uviews
@@ -28,5 +29,9 @@ router.register(r'users', uviews.UserViewSet, basename='users')
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('api-auth/', include('rest_framework.urls')),
-    path('api/', include(router.urls))
+    path('api/', include(router.urls)),
+    path('api/openapi/', get_schema_view(
+        title='Family Budget API',
+        version='1.0.0',
+    ), name='openapi-schema'),
 ]
