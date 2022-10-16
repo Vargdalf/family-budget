@@ -1,0 +1,92 @@
+[
+{
+    "model": "budgets.entry",
+    "pk": 1,
+    "fields": {
+        "budget": 1,
+        "category": 1,
+        "name": "September",
+        "amount": "5000.00"
+    }
+},
+{
+    "model": "budgets.entry",
+    "pk": 2,
+    "fields": {
+        "budget": 1,
+        "category": 2,
+        "name": "Rent",
+        "amount": "-2200.00"
+    }
+},
+{
+    "model": "budgets.entry",
+    "pk": 3,
+    "fields": {
+        "budget": 2,
+        "category": 4,
+        "name": "King Crimson - Red",
+        "amount": "-50.00"
+    }
+},
+{
+    "model": "budgets.entry",
+    "pk": 4,
+    "fields": {
+        "budget": 3,
+        "category": 4,
+        "name": "Concert",
+        "amount": "-200.00"
+    }
+},
+{
+    "model": "budgets.entry",
+    "pk": 5,
+    "fields": {
+        "budget": 3,
+        "category": 1,
+        "name": "January",
+        "amount": "2500.00"
+    }
+},
+{
+    "model": "budgets.entry",
+    "pk": 6,
+    "fields": {
+        "budget": 3,
+        "category": 2,
+        "name": "December",
+        "amount": "-2200.00"
+    }
+},
+{
+    "model": "budgets.entry",
+    "pk": 7,
+    "fields": {
+        "budget": 4,
+        "category": 1,
+        "name": "Let's Dance Tour",
+        "amount": "10000.00"
+    }
+},
+{
+    "model": "budgets.entry",
+    "pk": 8,
+    "fields": {
+        "budget": 4,
+        "category": 5,
+        "name": "The Stars Are Out Tonight",
+        "amount": "-500.00"
+    }
+},
+{
+    "model": "budgets.entry",
+    "pk": 9,
+    "fields": {
+        "budget": 5,
+        "category": 2,
+        "name": "Vocal lessons",
+        "amount": "-100.00"
+    }
+}
+]

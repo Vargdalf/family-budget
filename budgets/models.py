@@ -15,7 +15,7 @@ class Budget(models.Model):
 
 
 class Category(models.Model):
-    name = models.CharField(max_length=128)
+    name = models.CharField(max_length=128, unique=True)
 
     class Meta:
         verbose_name_plural = 'categories'

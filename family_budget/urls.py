@@ -24,7 +24,7 @@ from users import views as uviews
 router = DefaultRouter()
 router.register(r'budgets', bviews.BudgetViewSet, basename='budget')
 router.register(r'categories', bviews.CategoryViewSet, basename='category')
-router.register(r'users', uviews.UserViewSet, basename='users')
+router.register(r'users', uviews.UserViewSet, basename='user')
 
 urlpatterns = [
     path('admin/', admin.site.urls),

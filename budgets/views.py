@@ -17,7 +17,6 @@ class BudgetFilter(filters.FilterSet):
 
 
 class BudgetViewSet(viewsets.ModelViewSet):
-    queryset = Budget.objects.all()
     serializer_class = BudgetSerializer
     permission_classes = [IsBudgetOwnerOrSharedWith]
     filterset_class = BudgetFilter
@@ -27,6 +26,8 @@ class BudgetViewSet(viewsets.ModelViewSet):
 
     def get_queryset(self) -> QuerySet[Budget]:
         user = self.request.user
+        if user.is_superuser:
+            return Budget.objects.all()
         return Budget.objects.filter(Q(owner=user) | Q(shared_with=user))
 
 

@@ -1,0 +1,58 @@
+[
+{
+    "model": "budgets.budget",
+    "pk": 1,
+    "fields": {
+        "name": "Simple Budget",
+        "owner": 2,
+        "shared_with": []
+    }
+},
+{
+    "model": "budgets.budget",
+    "pk": 2,
+    "fields": {
+        "name": "Shared Budget",
+        "owner": 3,
+        "shared_with": [
+            5
+        ]
+    }
+},
+{
+    "model": "budgets.budget",
+    "pk": 3,
+    "fields": {
+        "name": "Super One",
+        "owner": 1,
+        "shared_with": []
+    }
+},
+{
+    "model": "budgets.budget",
+    "pk": 4,
+    "fields": {
+        "name": "The Next Day",
+        "owner": 5,
+        "shared_with": []
+    }
+},
+{
+    "model": "budgets.budget",
+    "pk": 5,
+    "fields": {
+        "name": "Watershed",
+        "owner": 4,
+        "shared_with": []
+    }
+},
+{
+    "model": "budgets.budget",
+    "pk": 6,
+    "fields": {
+        "name": "Painkiller",
+        "owner": 8,
+        "shared_with": [7]
+    }
+}
+]
